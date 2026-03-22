@@ -1,18 +1,40 @@
-function formatMessage(message, maxLength) {
-  if (message.length <= maxLength) {
-    return message;
-  } else {
-    return message.slice(0, maxLength) + '...';
-  }
-}
+const getUsersWithFriend = (users, friendName) => {
+  return users.filter(user => user.friends.includes(friendName));
+};
 
-console.log(formatMessage('Curabitur ligula sapien', 16));
-console.log(formatMessage('Curabitur ligula sapien', 23));
-console.log(formatMessage('Vestibulum facilisis purus nec', 20));
-console.log(formatMessage('Vestibulum facilisis purus nec', 30));
-console.log(formatMessage('Nunc sed turpis a felis in nunc fringilla', 15));
-console.log(formatMessage('Nunc sed turpis a felis in nunc fringilla', 41));
+// syntax: array.filter(item => item.arrayProperty.includes(value))
 
-////using ternary operator and arrow function (syntax based on the example const sum = (num1, num2) => {return num1 + num2;}, where const sum = : assign the function to a variable, (num1, num2): parameters, => : the arrow separating parameters from the function body, {return num1 + num2}: function body)
-//const formatMessage = (message, maxLength) =>
-//message.length <= maxLength ? message : message.slice(0, maxLength) + "...";
+const allUsers = [
+  {
+    name: 'Moore Hensley',
+    friends: ['Sharron Pace'],
+  },
+  {
+    name: 'Sharlene Bush',
+    friends: ['Briana Decker', 'Sharron Pace'],
+  },
+  {
+    name: 'Ross Vazquez',
+    friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+  },
+  {
+    name: 'Elma Head',
+    friends: ['Goldie Gentry', 'Aisha Tran'],
+  },
+  {
+    name: 'Carey Barr',
+    friends: ['Jordan Sampson', 'Eddie Strong'],
+  },
+  {
+    name: 'Blackburn Dotson',
+    friends: ['Jacklyn Lucas', 'Linda Chapman'],
+  },
+  {
+    name: 'Sheree Anthony',
+    friends: ['Goldie Gentry', 'Briana Decker'],
+  },
+];
+
+console.log(getUsersWithFriend(allUsers, 'Briana Decker'));
+console.log(getUsersWithFriend(allUsers, 'Goldie Gentry'));
+console.log(getUsersWithFriend(allUsers, 'Adrian Cross'));
